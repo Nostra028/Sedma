@@ -39,7 +39,6 @@ Sedma.Player = function (game, playerId) {
     Phaser.Sprite.call(this, game, this.postionx, this.postiony, 'place');
     this.defaultTint = this.tint;
     this.scale.set(0.5);
-    this.setDefaultTin();
 
     this.physics = game.physics.arcade;
     this.physics.enable(this);
