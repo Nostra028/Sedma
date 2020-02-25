@@ -8,6 +8,7 @@ Sedma.Player = function (game, playerId) {
     this.slots = [];
     this.game = game;
     this.tint = '';
+    this.defaultTint = '';
 
     if (playerId === 1 || playerId === 3) {
         this.postionx = (game.world.width / 2) - 50;
@@ -36,6 +37,7 @@ Sedma.Player = function (game, playerId) {
     }
 
     Phaser.Sprite.call(this, game, this.postionx, this.postiony, 'place');
+    this.defaultTint = this.tint;
     this.scale.set(0.5);
     this.setDefaultTin();
 
@@ -423,13 +425,13 @@ Sedma.Player.prototype.controlRotate = function (game) {
 };
 
 Sedma.Player.prototype.setPlayerActiveInfo = function () {
-    this.tint = 0xFFFF66;
+    this.tint = this.actualplayer === 'yes' ? 0x00CC33 : 0xFF0000;
 };
 
 Sedma.Player.prototype.unsetPlayerActiveInfo = function () {
-    this.setDefaultTin();
+    this.setDefaultTint();
 };
 
-Sedma.Player.prototype.setDefaultTin = function () {
-    this.tint = 0x00CC33;
+Sedma.Player.prototype.setDefaultTint = function () {
+    this.tint = this.defaultTint;
 };
